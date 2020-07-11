@@ -5,6 +5,7 @@ from scrapy.spiders import CrawlSpider, Rule
 
 
 class Top250MoviesSpider(CrawlSpider):
+    
     name = 'top_250_movies'
     allowed_domains = ['imdb.com']
     # since we overide start_requests, we don't need start_urls here anymore
@@ -36,6 +37,5 @@ class Top250MoviesSpider(CrawlSpider):
             'duration': response.xpath("normalize-space(//div[@class='subtext']/time/text())").get(),
             'genre': response.xpath("//div[@class='subtext']/a[1]/text()").get(),
             'rating': response.xpath("//span[@itemprop='ratingValue']/text()").get(),
-            'movie_url': response.url,
-            'User-Agent': response.request.headers['User-Agent']
+            'movie_url': response.url
         }

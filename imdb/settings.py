@@ -64,9 +64,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
+ITEM_PIPELINES = {
 #    'imdb.pipelines.ImdbPipeline': 300,
-#}
+   'imdb.pipelines.SQLitePipeline':3000
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -91,3 +92,4 @@ ROBOTSTXT_OBEY = True
 
 
 FEED_EXPORT_ENCODING = 'utf-8'
+BEST_MOVIE_COLLECTION = 'best_movies'
